@@ -20,5 +20,27 @@
 		"type": "Silver",
 		"faction": "Neutral",
 		"ability": "Make a unit Resilient."
+	},
+	{
+		"name": "Abaya",
+		"imagePath": "http://gwentify.com/wp-content/uploads/2016/10/abaya-500x668.png",
+		"tags": [
+			"Organic",
+			"Special"
+		],
+		"type": "Silver",
+		"faction": "Monsters",
+		"ability": "Spawn Rain, Clear Skies or Arachas Venom."
+	},
+	{
+		"name": "Adrenaline Rush",
+		"imagePath": "http://gwentify.com/wp-content/uploads/2016/10/adrenaline-rush-500x668.png",
+		"tags": [
+			"Organic",
+			"Special"
+		],
+		"type": "Silver",
+		"faction": "Neutral",
+		"ability": "Make a unit Resilient."
 	}
 ]

@@ -7,46 +7,93 @@ import Typography from 'material-ui/Typography';
 
 const styles = {
   card: {
-    maxWidth: 345,
+    display: 'flex',
+    minWidth: 350,
+    minHeight: 500,
+    flexDirection: 'column',
+    margin: '10px'
   },
   media: {
-    height: 200,
+    minHeight: 380,
+    minWidth: 300
   },
+  content: {
+    display: 'flex',
+    flexDirection: 'column'
+  }
+};
+
+function ContentArray(props) {
+  const list = props.list;
+  const listItems = [];
+  
+  list.forEach((element,i) => {
+    console.log(i);
+    if (list.length > 1 && i < list.length) {
+      listItems.push(element);
+    };
+
+    if (list.length > 1 && i < list.length - 1) {
+      listItems.push(', ')
+    };
+  });
+
+  return (<a>{listItems}</a>);
 };
 
 class MediaCard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      imagePath: props.cardInfo.imagePath,
+      name: props.cardInfo.name,
+      ability: props.cardInfo.ability,
+      tags: props.cardInfo.tags,
+      faction: props.cardInfo.faction,
+      type: props.cardInfo.type
+    }
+  };
 
-  render () {
+  render() {
     const { classes } = this.props;
-  return (
-    <div>
-      <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image={this.props.imagePath}
-          title={this.props.name}
-        />
-        <CardContent>
-          <Typography type="headline" component="h2">
-            Lizard
-          </Typography>
-          <Typography component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button dense color="primary">
-            Share
+
+    return (
+      <div>
+        <Card className={classes.card}>
+          <CardMedia
+            className={classes.media}
+            image={this.state.imagePath}
+            title={this.state.name}
+          />
+          <CardContent className={classes.content}>
+            <Typography type="title" component="h2">
+              {this.state.name}
+            </Typography>
+            <Typography type="subheading" component="p">
+              <ContentArray list={this.state.tags}/>
+            </Typography>
+            <Typography type="subheading" component="p">
+              {this.state.type}
+            </Typography>
+            <Typography type="subheading" component="p">
+              {this.state.faction}
+            </Typography>
+            <Typography type="subheading" component="p">
+              {this.state.ability}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button dense color="primary">
+              Share
           </Button>
-          <Button dense color="primary">
-            Learn More
+            <Button dense color="primary">
+              Learn More
           </Button>
-        </CardActions>
-      </Card>
-    </div>
-  );
-};
+          </CardActions>
+        </Card>
+      </div>
+    );
+  };
 }
 
 MediaCard.propTypes = {

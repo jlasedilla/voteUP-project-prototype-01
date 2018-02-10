@@ -13,22 +13,23 @@ const styles = {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    margin: '5px',
+    margin: '10px',
+    flexWrap: 'wrap'
   }
 };
 
 class CardDesk extends Component {
   render() {
     const { classes } = this.props;
-
-    console.log( cards[0].imagePath );
-
+    
     return (
         <div className={ classes.root }>
           <MenuAppBar/>
           <div className={ classes.cardContainer } >
-            <MediaCard imagePath={cards[0].imagePath} />
-            <MediaCard imagePath={cards[1].imagePath} />
+            <MediaCard cardInfo={cards[0]} />
+            <MediaCard cardInfo={cards[1]} />
+            <MediaCard cardInfo={cards[2]} />
+            <MediaCard cardInfo={cards[3]} />
           </div>
         </div>
     );
